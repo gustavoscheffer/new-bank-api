@@ -9,4 +9,9 @@
 * PATCH /user/:id - Update user by id
 * DELETE /user/:id - Delete user by id
 
+## Technologies
+
+* Golang
+* Express
+* MongoDB
 
