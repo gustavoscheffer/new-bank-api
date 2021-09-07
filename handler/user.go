@@ -9,6 +9,11 @@ import (
 	"go.mongodb.org/mongo-driver/bson"
 )
 
+func findUserCpf(cpf int64) *model.User {
+	user := new(model.User)
+	mgm.Coll(user).First(bson.M{"cpf": cpf}, user)
+	return user
+}
 func GetAllUser(c *fiber.Ctx) error {
 
 	coll := mgm.Coll(&model.User{})
@@ -22,48 +27,70 @@ func GetAllUser(c *fiber.Ctx) error {
 	if err := cursor.All(mgm.Ctx(), &results); err != nil {
 		log.Fatal(err)
 	}
+	if results == nil {
+		c.JSON(fiber.Map{"status": "There's no user to list"})
+		return c.SendStatus(200)
+	}
 	return c.JSON(results)
 }
 func GetUser(c *fiber.Ctx) error {
 	id := c.Params("id")
 	user := &model.User{}
-	mgm.Coll(user).FindByID(id, user)
 
-	return c.JSON(user)
+	if err := mgm.Coll(user).FindByID(id, user); err != nil {
+		c.JSON(fiber.Map{"status": "User not found"})
+		return c.SendStatus(404)
+	}
+	return c.JSON(fiber.Map{"status": "User found", "result": user})
 }
 func CreateUser(c *fiber.Ctx) error {
-	user := new(model.User)
+
+	user := &model.User{}
 	c.BodyParser(user)
-	if err := mgm.Coll(user).Create(user); err != nil {
-		return c.JSON(err)
+
+	if user.Cpf == findUserCpf(user.Cpf).Cpf {
+		c.JSON(fiber.Map{"status": "user user already exists"})
+		return c.SendStatus(400)
 	}
 
-	return c.JSON(fiber.Map{"status": "create user successed!"})
+	if err := mgm.Coll(user).Create(user); err != nil {
+		c.JSON(fiber.Map{"status": "user cannot be created"})
+		return c.SendStatus(500)
+	}
+
+	c.JSON(fiber.Map{"status": "user created!", "result": user})
+	return c.SendStatus(201)
 }
 func UpdateUser(c *fiber.Ctx) error {
 	id := c.Params("id")
 	user := &model.User{}
-	mgm.Coll(user).FindByID(id, user)
 
-	newData := new(model.User)
-	c.BodyParser(newData)
-
-	user.Cpf = newData.Cpf
-	user.Debit = newData.Debit
-
-	if err := mgm.Coll(user).Update(user); err != nil {
-		return err
+	if err := mgm.Coll(user).FindByID(id, user); err != nil {
+		c.JSON(fiber.Map{"status": "User not found"})
+		return c.SendStatus(404)
 	}
 
-	return c.JSON(fiber.Map{"status": "Update user successed!", "user": user})
+	c.BodyParser(user)
+
+	if err := mgm.Coll(user).Update(user); err != nil {
+		c.JSON(fiber.Map{"status": "User cannot be updated"})
+		return c.SendStatus(500)
+	}
+
+	return c.JSON(fiber.Map{"status": "User up to date", "user": user})
 }
 func DeleteUser(c *fiber.Ctx) error {
 	id := c.Params("id")
 	user := &model.User{}
-	mgm.Coll(user).FindByID(id, user)
 
-	if err := mgm.Coll(user).Delete(user); err != nil {
-		return err
+	if err := mgm.Coll(user).FindByID(id, user); err != nil {
+		c.JSON(fiber.Map{"status": "User not found"})
+		return c.SendStatus(404)
 	}
-	return c.JSON(fiber.Map{"status": "delete user successed!", "user": user})
+	err := mgm.Coll(user).Delete(user)
+	if err != nil {
+		c.JSON(fiber.Map{"status": "User cannot be deleted"})
+		return c.SendStatus(500)
+	}
+	return c.JSON(fiber.Map{"status": "User deleted", "user": user})
 }
