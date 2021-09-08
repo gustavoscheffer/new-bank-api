@@ -1,8 +1,10 @@
 package router
 
 import (
+	_ "new-bank-api/docs"
 	"new-bank-api/handler"
 
+	swagger "github.com/arsmn/fiber-swagger/v2"
 	"github.com/gofiber/fiber/v2"
 )
 
@@ -18,4 +20,6 @@ func SetupRoutes(app *fiber.App) {
 	user.Post("/", handler.CreateUser)
 	user.Patch("/:id", handler.UpdateUser)
 	user.Delete("/:id", handler.DeleteUser)
+
+	app.Get("/docs/*", swagger.Handler)
 }

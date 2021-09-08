@@ -2,16 +2,16 @@
 
 ## Endpoints
 
-* GET /user/ - Get all users
-* GET /user/:id - Get by id
-* GET /user/:cpf - Get by cpf
-* POST /user/ - Create user
-* PATCH /user/:id - Update user by id
-* DELETE /user/:id - Delete user by id
+* GET /users/ - Get all users
+* GET /users/:id - Get by id
+* POST /users/ - Create user
+* PATCH /users/:id - Update user by id
+* DELETE /users/:id - Delete user by id
 
 ## Technologies
 
 * Golang
 * Express
 * MongoDB
+* Swagger
 
