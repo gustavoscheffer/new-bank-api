@@ -27,6 +27,11 @@ go run .
 ```
 swag init --parseDependency 
 ```
+- Lint your code
+```
+golangci-lint run . 
+```
+
 
 ## Environment Variables:
 MONGO_URI
@@ -44,3 +49,4 @@ APP_PORT
 - [ ] Insomnial test colections
 - [ ] Implement authentication
 - [ ] GitLab Pipeline (CI/CD)
+- [x] Lint code
