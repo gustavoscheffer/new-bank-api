@@ -32,7 +32,6 @@ swag init --parseDependency
 golangci-lint run . 
 ```
 
-
 ## Environment Variables:
 MONGO_URI
 MONGO_DB
