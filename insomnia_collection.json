@@ -1,0 +1,250 @@
+{
+    "_type":"export",
+    "__export_format":4,
+    "__export_date":"2022-03-20T20:26:15.728Z",
+    "__export_source":"insomnia.desktop.app:v2022.2.0",
+    "resources":[
+       {
+          "_id":"req_09c21bdd31ff401eaad513a4f720d80f",
+          "parentId":"wrk_5b1efac52e50410dbd117257e60efaee",
+          "modified":1647807800960,
+          "created":1647714751771,
+          "url":"{{ _.url }}:{{ _.port }}/v1/user/",
+          "name":"get all users",
+          "description":"",
+          "method":"GET",
+          "body":{
+             
+          },
+          "parameters":[
+             
+          ],
+          "headers":[
+             
+          ],
+          "authentication":{
+             
+          },
+          "metaSortKey":-1647714751771,
+          "isPrivate":false,
+          "settingStoreCookies":true,
+          "settingSendCookies":true,
+          "settingDisableRenderRequestBody":false,
+          "settingEncodeUrl":true,
+          "settingRebuildPath":true,
+          "settingFollowRedirects":"global",
+          "_type":"request"
+       },
+       {
+          "_id":"wrk_5b1efac52e50410dbd117257e60efaee",
+          "parentId":null,
+          "modified":1647714751752,
+          "created":1647714751752,
+          "name":"New Document",
+          "description":"",
+          "scope":"design",
+          "_type":"workspace"
+       },
+       {
+          "_id":"req_6547b14818e84763a03c6aad84aba6fb",
+          "parentId":"wrk_5b1efac52e50410dbd117257e60efaee",
+          "modified":1647807935682,
+          "created":1647714888348,
+          "url":"{{ _.url }}:{{ _.port }}/v1/user/",
+          "name":"create user",
+          "description":"",
+          "method":"POST",
+          "body":{
+             "mimeType":"application/json",
+             "text":"{\n  \"cpf\": \"0078543110\",\n  \"debit\": 101.60,\n  \"name\": \"Gus Cooper\"\n}"
+          },
+          "parameters":[
+             
+          ],
+          "headers":[
+             {
+                "name":"Content-Type",
+                "value":"application/json",
+                "id":"pair_459573ae802d44b1b4ae1633d0c5724d"
+             }
+          ],
+          "authentication":{
+             
+          },
+          "metaSortKey":-1647714751821,
+          "isPrivate":false,
+          "settingStoreCookies":true,
+          "settingSendCookies":true,
+          "settingDisableRenderRequestBody":false,
+          "settingEncodeUrl":true,
+          "settingRebuildPath":true,
+          "settingFollowRedirects":"global",
+          "_type":"request"
+       },
+       {
+          "_id":"req_0b72c0c5c0af45629a7dc7dbba476a57",
+          "parentId":"wrk_5b1efac52e50410dbd117257e60efaee",
+          "modified":1647807911456,
+          "created":1647803599385,
+          "url":"{{ _.url }}:{{ _.port }}/v1/user/623781cc001c0b0492dc4451",
+          "name":"get user by ID",
+          "description":"",
+          "method":"GET",
+          "body":{
+             
+          },
+          "parameters":[
+             
+          ],
+          "headers":[
+             
+          ],
+          "authentication":{
+             
+          },
+          "metaSortKey":-1647714751746,
+          "isPrivate":false,
+          "settingStoreCookies":true,
+          "settingSendCookies":true,
+          "settingDisableRenderRequestBody":false,
+          "settingEncodeUrl":true,
+          "settingRebuildPath":true,
+          "settingFollowRedirects":"global",
+          "_type":"request"
+       },
+       {
+          "_id":"req_6e78ba093ebb4812a48e6b7ac28fe5f2",
+          "parentId":"wrk_5b1efac52e50410dbd117257e60efaee",
+          "modified":1647807907268,
+          "created":1647803621454,
+          "url":"{{ _.url }}:{{ _.port }}/v1/user/623781cc001c0b0492dc4451",
+          "name":"delete user by ID",
+          "description":"",
+          "method":"DELETE",
+          "body":{
+             
+          },
+          "parameters":[
+             
+          ],
+          "headers":[
+             
+          ],
+          "authentication":{
+             
+          },
+          "metaSortKey":-1647714751733.5,
+          "isPrivate":false,
+          "settingStoreCookies":true,
+          "settingSendCookies":true,
+          "settingDisableRenderRequestBody":false,
+          "settingEncodeUrl":true,
+          "settingRebuildPath":true,
+          "settingFollowRedirects":"global",
+          "_type":"request"
+       },
+       {
+          "_id":"req_0e04af87ad37440db81a2d8babb6b40d",
+          "parentId":"wrk_5b1efac52e50410dbd117257e60efaee",
+          "modified":1647807961586,
+          "created":1647803681415,
+          "url":"{{ _.url }}:{{ _.port }}/v1/user/623781cc001c0b0492dc4451",
+          "name":"update user by ID",
+          "description":"",
+          "method":"PATCH",
+          "body":{
+             "mimeType":"application/json",
+             "text":"{\n\t\"name\": \"Gustavo Scheffer\"\n}"
+          },
+          "parameters":[
+             
+          ],
+          "headers":[
+             {
+                "name":"Content-Type",
+                "value":"application/json",
+                "id":"pair_e3c809e5de1f444c91e7dce37c1cd766"
+             }
+          ],
+          "authentication":{
+             
+          },
+          "metaSortKey":-1647714751727.25,
+          "isPrivate":false,
+          "settingStoreCookies":true,
+          "settingSendCookies":true,
+          "settingDisableRenderRequestBody":false,
+          "settingEncodeUrl":true,
+          "settingRebuildPath":true,
+          "settingFollowRedirects":"global",
+          "_type":"request"
+       },
+       {
+          "_id":"env_47b9cca0e8eae939b166a97c905999bf91ce5a0e",
+          "parentId":"wrk_5b1efac52e50410dbd117257e60efaee",
+          "modified":1647807517811,
+          "created":1647714751764,
+          "name":"Base Environment",
+          "data":{
+             
+          },
+          "dataPropertyOrder":{
+             
+          },
+          "color":null,
+          "isPrivate":false,
+          "metaSortKey":1647714751764,
+          "_type":"environment"
+       },
+       {
+          "_id":"jar_47b9cca0e8eae939b166a97c905999bf91ce5a0e",
+          "parentId":"wrk_5b1efac52e50410dbd117257e60efaee",
+          "modified":1647714751767,
+          "created":1647714751767,
+          "name":"Default Jar",
+          "cookies":[
+             
+          ],
+          "_type":"cookie_jar"
+       },
+       {
+          "_id":"spc_909db7823c044d75ac76afc3044a87c3",
+          "parentId":"wrk_5b1efac52e50410dbd117257e60efaee",
+          "modified":1647714796704,
+          "created":1647714751760,
+          "fileName":"new-bank-api",
+          "contents":"",
+          "contentType":"yaml",
+          "_type":"api_spec"
+       },
+       {
+          "_id":"uts_1c9f6ad64b324921a9355dd2944e18ad",
+          "parentId":"wrk_5b1efac52e50410dbd117257e60efaee",
+          "modified":1647714751772,
+          "created":1647714751772,
+          "name":"Example Test Suite",
+          "_type":"unit_test_suite"
+       },
+       {
+          "_id":"env_3ce645e9405548c6a89700292394df51",
+          "parentId":"env_47b9cca0e8eae939b166a97c905999bf91ce5a0e",
+          "modified":1647807612574,
+          "created":1647807520615,
+          "name":"New-bank-api-Envs",
+          "data":{
+             "url":"http://localhost",
+             "port":"3000"
+          },
+          "dataPropertyOrder":{
+             "&":[
+                "url",
+                "port"
+             ]
+          },
+          "color":null,
+          "isPrivate":false,
+          "metaSortKey":1647807520615,
+          "_type":"environment"
+       }
+    ]
+ }
