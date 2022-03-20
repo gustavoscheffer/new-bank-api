@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+
 	"new-bank-api/model"
 
 	"github.com/gofiber/fiber/v2"
@@ -67,7 +68,7 @@ func GetAllUser(c *fiber.Ctx) error {
 // @Success 200 {object} ResponseHTTP{data=[]model.User}
 // @Failure 404 {object} ResponseHTTP{}
 // @Failure 503 {object} ResponseHTTP{}
-// @Router /v1/users/{id} [get]
+// @Router /v1/user/{id} [get]
 func GetUser(c *fiber.Ctx) error {
 	id := c.Params("id")
 	user := &model.User{}
@@ -136,6 +137,7 @@ func CreateUser(c *fiber.Ctx) error {
 		Message: "Success create a user",
 		Data:    user,
 	})
+	return c.Send(c.Body())
 }
 
 // UpdateUser create a new user data
@@ -149,7 +151,7 @@ func CreateUser(c *fiber.Ctx) error {
 // @Success 200 {object} ResponseHTTP{data=model.User}
 // @Failure 400 {object} ResponseHTTP{}
 // @Failure 503 {object} ResponseHTTP{}
-// @Router /v1/users/{id} [patch]
+// @Router /v1/user/{id} [patch]
 func UpdateUser(c *fiber.Ctx) error {
 	id := c.Params("id")
 	user := &model.User{}
@@ -197,7 +199,7 @@ func UpdateUser(c *fiber.Ctx) error {
 // @Success 200 {object} ResponseHTTP{}
 // @Failure 404 {object} ResponseHTTP{}
 // @Failure 503 {object} ResponseHTTP{}
-// @Router /v1/users/{id} [delete]
+// @Router /v1/user/{id} [delete]
 func DeleteUser(c *fiber.Ctx) error {
 	id := c.Params("id")
 	user := &model.User{}
