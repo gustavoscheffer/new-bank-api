@@ -18,8 +18,8 @@ type ResponseHTTP struct {
 	Message string      `json:"message"`
 }
 
-func findUserCpf(cpf int64) *model.User {
-	user := new(model.User)
+func findUserCpf(cpf string) *model.User {
+	user := &model.User{}
 	mgm.Coll(user).First(bson.M{"cpf": cpf}, user)
 	return user
 }
@@ -27,12 +27,12 @@ func findUserCpf(cpf int64) *model.User {
 // GetAllUser is a function to get all users data from database
 // @Summary Get all users
 // @Description Get all users
-// @Tags users
+// @Tags user
 // @Accept json
 // @Produce json
 // @Success 200 {object} ResponseHTTP{data=[]model.User}
 // @Failure 503 {object} ResponseHTTP{}
-// @Router /v1/users [get]
+// @Router /v1/user [get]
 func GetAllUser(c *fiber.Ctx) error {
 
 	coll := mgm.Coll(&model.User{})
@@ -61,7 +61,7 @@ func GetAllUser(c *fiber.Ctx) error {
 // GetUser is a function to get a user by ID
 // @Summary Get user by ID
 // @Description Get user by ID
-// @Tags users
+// @Tags user
 // @Accept json
 // @Produce json
 // @Param id path string true "user ID"
@@ -101,14 +101,14 @@ func GetUser(c *fiber.Ctx) error {
 // CreateUser create a new user data
 // @Summary Create a new user
 // @Description Create user
-// @Tags users
+// @Tags user
 // @Accept json
 // @Produce json
 // @Param user body model.User true "Create user"
 // @Success 200 {object} ResponseHTTP{data=model.User}
 // @Failure 400 {object} ResponseHTTP{}
 // @Failure 503 {object} ResponseHTTP{}
-// @Router /v1/users [post]
+// @Router /v1/user [post]
 func CreateUser(c *fiber.Ctx) error {
 
 	user := &model.User{}
@@ -137,13 +137,12 @@ func CreateUser(c *fiber.Ctx) error {
 		Message: "Success create a user",
 		Data:    user,
 	})
-	return c.Send(c.Body())
 }
 
 // UpdateUser create a new user data
 // @Summary Update a user
 // @Description Update user
-// @Tags users
+// @Tags user
 // @Accept json
 // @Produce json
 // @Param user body model.User true "Update user"
@@ -192,7 +191,7 @@ func UpdateUser(c *fiber.Ctx) error {
 // DeleteUser function removes a user by ID
 // @Summary Remove user by ID
 // @Description Remove user by ID
-// @Tags users
+// @Tags user
 // @Accept json
 // @Produce json
 // @Param id path string true "user ID"

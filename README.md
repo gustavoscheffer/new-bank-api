@@ -7,10 +7,7 @@
 * POST /v1/user/ - Create user
 * PATCH /v1/user/:id - Update user by id
 * DELETE /v1/user/:id - Delete user by id
-
-## Documentation: 
-
-* GET /docs/ 
+* GET /docs/ - Swagger documentation
 
 ## Technologies
 
@@ -19,3 +16,26 @@
 * MongoDB
 * Swagger
 
+## Tips
+
+- Build and run application:
+```
+go run .
+```
+
+- Create Swagger docs automatically
+```
+swag init --parseDependency 
+```
+
+## Improvements
+
+- [x] Improve all Endpoints based on Rest full Api's
+- [x] Configure logs
+- [x] Implement swagger(docs) 
+- [x] Improve README.md
+- [ ] Unit Test
+- [ ] Docker instructions
+- [ ] Insomnial test colections
+- [ ] Implement authentication
+- [ ] GitLab Pipeline (CI/CD)
