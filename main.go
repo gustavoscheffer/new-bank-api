@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"new-bank-api/config"
 	"new-bank-api/database"
 	"new-bank-api/router"
 
@@ -26,6 +27,5 @@ func main() {
 
 	router.SetupRoutes(app)
 
-	log.Fatal(app.Listen(":3000"))
-
+	log.Fatal(app.Listen(":" + config.Config("APP_PORT")))
 }
