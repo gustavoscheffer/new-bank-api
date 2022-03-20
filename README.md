@@ -15,6 +15,8 @@
 * Express
 * MongoDB
 * Swagger
+* Insomnia
+* Docker
 
 ## Tips
 
@@ -45,7 +47,7 @@ golangci-lint run .
 - [x] Improve README.md
 - [ ] Unit Test
 - [ ] Docker instructions
-- [ ] Insomnial test colections
+- [x] Insomnial test colections
 - [ ] Implement authentication
 - [ ] GitLab Pipeline (CI/CD)
 - [x] Lint code
