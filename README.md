@@ -28,6 +28,11 @@ go run .
 swag init --parseDependency 
 ```
 
+## Environment Variables:
+MONGO_URI
+MONGO_DB
+APP_PORT
+
 ## Improvements
 
 - [x] Improve all Endpoints based on Rest full Api's
