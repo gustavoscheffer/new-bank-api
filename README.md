@@ -33,9 +33,9 @@ golangci-lint run .
 ```
 
 ## Environment Variables:
-MONGO_URI
-MONGO_DB
-APP_PORT
+- MONGO_URI
+- MONGO_DB
+- APP_PORT
 
 ## Improvements
 
